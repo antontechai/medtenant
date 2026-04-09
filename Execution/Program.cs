@@ -2,13 +2,13 @@
 using MedTenant.Application.Entities;
 using MedTenant.Infrastructure.Repositories;
 
-name space MedTenant
+namespace MedTenant.Execution
 {
 class Program
 {
     static void Main(string[] args)
     {
-        Doctor myDoctor = new Doctor("Anton", "Sheverdin", 1); // creating a doctor 
+        Doctor myDoctor = new Doctor(1, "Anton", "Sheverdin", 5); // creating a doctor 
         DoctorRepository repository = new DoctorRepository();
 
         try
