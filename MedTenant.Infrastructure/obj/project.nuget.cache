@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "qBVbqMk6Gec=",
+  "success": true,
+  "projectFilePath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/MedTenant.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "/home/anton/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/10.0.0/microsoft.extensions.dependencyinjection.abstractions.10.0.0.nupkg.sha512",
+    "/home/anton/.nuget/packages/microsoft.extensions.logging.abstractions/10.0.0/microsoft.extensions.logging.abstractions.10.0.0.nupkg.sha512",
+    "/home/anton/.nuget/packages/npgsql/10.0.2/npgsql.10.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
