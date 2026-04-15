@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
-
+using MedTenant.Application.Entities;
+using MedTenant.Application.Interfaces;
+using MedTenant.Infrastructure.Repositories;
 namespace DefaultNamespace 
 {
 
@@ -20,6 +22,10 @@ public class AddDoctor : PageModel
 	
 	public void OnPost()
 	{
+		Doctor newDoctor = new Doctor(1, FirstName, LastName, SpecialityId); // shape doctor from the form 
+		DoctorRepository repository = new DoctorRepository(); // working with db 
+		repository.AddDoctor(newDoctor);	
+
 		Console.WriteLine("First Name: " + FirstName);
 		Console.WriteLine("Last Name: " + LastName);
 		Console.WriteLine("Speciality Id: " + SpecialityId);
