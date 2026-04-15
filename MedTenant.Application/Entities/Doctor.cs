@@ -4,7 +4,7 @@ namespace MedTenant.Application.Entities
     {
         //
         public int Id { get; private set; }
-        public int TenantId { get; private set }
+        public int TenantId { get; private set; }
         
         // personal data 
         public string FirstName { get; private set; }
@@ -16,6 +16,8 @@ namespace MedTenant.Application.Entities
         
         // construction for new doctors 
         public Doctor(int tenantId, string firstName, string lastName, int specialityId)
+        //public Doctor(string firstName, string lastName, int specialityId)
+
         {
             // not id = automatically in db
             TenantId = tenantId;

@@ -1,0 +1,28 @@
+@page
+@model DefaultNamespace.AddDoctor
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Add new doctor</title>
+</head>
+<body>
+<div>
+
+<form method="post">
+	<label>First Name:</label>
+	<input type="text" name="FirstName" />
+	<label>Last Name:</label>
+	<input type="text" name="LastName" />
+	<label>Speciality Id:</label>
+	<input	type="number" name="SpecialityId" />
+	<button type="submit">Submit</button>
+</form> 
+</div>
+</body>
+</html>

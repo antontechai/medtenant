@@ -1,0 +1,16 @@
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/obj/Debug/net10.0/MedTenant.Infrastructure.csproj.AssemblyReference.cache
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/obj/Debug/net10.0/MedTenant.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/obj/Debug/net10.0/MedTenant.Infrastructure.AssemblyInfoInputs.cache
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/obj/Debug/net10.0/MedTenant.Infrastructure.AssemblyInfo.cs
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/obj/Debug/net10.0/MedTenant.Infrastructure.csproj.CoreCompileInputs.cache
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/obj/Debug/net10.0/MedTenant.Infrastructure.sourcelink.json
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/bin/Debug/net10.0/MedTenant.Infrastructure.deps.json
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/bin/Debug/net10.0/MedTenant.Infrastructure.dll
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/bin/Debug/net10.0/MedTenant.Infrastructure.pdb
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/bin/Debug/net10.0/MedTenant.Application.dll
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/bin/Debug/net10.0/MedTenant.Application.pdb
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/obj/Debug/net10.0/MedTenan.4A98BD1C.Up2Date
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/obj/Debug/net10.0/MedTenant.Infrastructure.dll
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/obj/Debug/net10.0/refint/MedTenant.Infrastructure.dll
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/obj/Debug/net10.0/MedTenant.Infrastructure.pdb
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/obj/Debug/net10.0/ref/MedTenant.Infrastructure.dll
