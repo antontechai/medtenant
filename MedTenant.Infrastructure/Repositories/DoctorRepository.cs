@@ -28,5 +28,46 @@ namespace MedTenant.Infrastructure.Repositories
 			command.ExecuteNonQuery();
 			connection.Close();
 		}
+	
+	public List<Doctor> GetAllDoctors()
+	{
+	List<Doctor> AllDoctors = new List<Doctor>(); // empty box for answers
+	using (SqlConnection connection = new SqlConnection(_connectionString )) // creating protected connection tunnel with server and sql db
+	// _connectionc string precise address 
+	// using construction gurantee that code goes to connection.Close()
+	{
+		connection.Open();
+		// preparing SQL request 
+		string sqlDoctors = "SELECT id, TenantId, FirstName, LastName, SpecialityId, IsActive FROM Doctors";
+		
+		// creating command 
+		using (SqlCommand command = new SqlCommand(sqlDoctors, connection)) // specification of what to do
+		{
+			// executing command and get Reader
+			using (SqlDataReader reader = command.ExecuteReader()) // ExecuteReader() get table with data and SqlDataReader tool that helps to read it 
+			{
+				// reader reading data 
+				while (reader.Read()) // read untill false 
+				{
+					// taking data and putting them into variables
+					int id = reader.GetInt32(0); // 0 is first column (Id)
+					int tenantId = reader.GetInt32(1); // 1 - second column (TenantId)
+					string firstName = reader.GetString(2);
+					string lastName = reader.GetString(3);
+					int specialityId = reader.GetInt32(4);
+					bool isActive = reader.GetBoolean(5);
+
+					// using new constructor, to shape the doctor 
+					Doctor doc = new Doctor(id, tenantId, firstName, lastName, specialityId, isActive);
+
+					// adding new created doctor into the list 
+					AllDoctors.Add(doc);
+				}
+			}
+		}
+	}
+	// return fully filled list 
+	return AllDoctors;
+	}
 	}
 }

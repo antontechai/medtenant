@@ -1,10 +1,31 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Doctor List";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>List of our Doctors</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Speciality (ID)</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var doc in Model.DoctorList)
+    {
+        <tr>
+            <td>@doc.FirstName</td>
+            <td>@doc.LastName</td>
+            <td>@doc.SpecialityId</td>
+            <td>@(doc.IsActive ? "Active" : "Not Active")</td>
+        </tr>
+    }
+    </tbody> 
+</table>
+
+<a href="/AddDoctor" class="btn btn-primary">Add new doctor</a>
