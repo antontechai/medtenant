@@ -23,15 +23,13 @@
             <td>@doc.LastName</td>
             <td>@doc.SpecialityId</td>
             <td>@(doc.IsActive ? "Active" : "Not Active")</td>
+            
+            <td>
+                <a href="/EditDoctor?id=@doc.Id" class="btn btn-warning btn-sm">Edit</a>
+                
+                <form method="post" asp-page-handler="Deactivate" asp-route-id="@doc.Id" style="display:inline;">
+                    <button type="submit" class="btn btn-danger btn-sm">Deactivate</button>
+                </form>
+            </td>
         </tr>
-        
-        <td>
-            <form method="post" asp-page-handler="Deactivate" asp-route-id="@doc.Id">
-                <button class="btn btn-danger btn-sm">Deactivate</button>
-            </form>
-        </td>
     }
-    </tbody> 
-</table>
-
-<a href="/AddDoctor" class="btn btn-primary">Add new doctor</a>
