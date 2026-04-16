@@ -1,0 +1,35 @@
+@page
+@model MedTenant.Web.Pages.EditDoctorModel
+@{
+    ViewData["Title"] = "Edit Doctor";
+}
+
+<h1>Edit Doctor Profile</h1>
+
+<form method="post">
+    <input type="hidden" name="CurrentDoctor.Id" value="@Model.CurrentDoctor.Id" />
+
+    <div class="mb-3">
+        <label>First Name</label>
+        <input type="text" name="CurrentDoctor.FirstName" class="form-control" value="@Model.CurrentDoctor.FirstName" required />
+    </div>
+
+    <div class="mb-3">
+        <label>Last Name</label>
+        <input type="text" name="CurrentDoctor.LastName" class="form-control" value="@Model.CurrentDoctor.LastName" required />
+    </div>
+
+    <div class="mb-3">
+        <label>Speciality ID</label>
+        <input type="number" name="CurrentDoctor.SpecialityId" class="form-control" value="@Model.CurrentDoctor.SpecialityId" required />
+    </div>
+
+    <div class="mb-3 form-check">
+        <input type="checkbox" name="CurrentDoctor.IsActive" class="form-check-input" value="true" @(Model.CurrentDoctor.IsActive ? "checked" : "") />
+        <label class="form-check-label">Is Active?</label>
+        <input type="hidden" name="CurrentDoctor.IsActive" value="false" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Save Changes</button>
+    <a href="/Index" class="btn btn-secondary">Cancel</a>
+</form>

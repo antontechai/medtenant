@@ -26,6 +26,10 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRkRG9jdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/Pages/EditDoctor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRWRpdERvY3Rvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
