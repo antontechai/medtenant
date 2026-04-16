@@ -7,5 +7,10 @@ namespace MedTenant.Application.Interfaces
     void AddDoctor(Doctor doctor);
 	List<Doctor> GetAllDoctors();
 	void DeactiveDoctor(int id);
-    }
+    
+	// new edit methods 
+	Doctor GetDoctorById(int id);
+	void UpdateDoctor(Doctor doctor);
+	}
+
 }

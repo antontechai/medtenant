@@ -3,16 +3,21 @@ namespace MedTenant.Application.Entities
 	public class Doctor
 	{
 		//
-		public int Id { get; private set; }
-		public int TenantId { get; private set; }
+		public int Id { get; set; }
+		public int TenantId { get; set; }
 
 		// personal data 
-		public string FirstName { get; private set; }
-		public string LastName { get; private set; }
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
 
 		// speciality and status 
-		public int SpecialityId { get; private set; }
-		public bool IsActive { get; private set; }
+		public int SpecialityId { get; set; }
+		public bool IsActive { get; set; }
+
+		public Doctor() // empty constructor for ASP.NET
+		{
+			
+		}
 
 		// construction for new doctors 
 		public Doctor(int tenantId, string firstName, string lastName, int specialityId)

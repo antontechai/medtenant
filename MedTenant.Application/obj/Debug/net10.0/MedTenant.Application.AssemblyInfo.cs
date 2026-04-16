@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MedTenant.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e6680abd0af099e9114169c9813c58d8ed90cf4b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+feb42cec942ad0942d50586819f26df80a4ca750")]
 [assembly: System.Reflection.AssemblyProductAttribute("MedTenant.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MedTenant.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
