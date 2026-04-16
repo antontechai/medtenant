@@ -24,6 +24,12 @@
             <td>@doc.SpecialityId</td>
             <td>@(doc.IsActive ? "Active" : "Not Active")</td>
         </tr>
+        
+        <td>
+            <form method="post" asp-page-handler="Deactivate" asp-route-id="@doc.Id">
+                <button class="btn btn-danger btn-sm">Deactivate</button>
+            </form>
+        </td>
     }
     </tbody> 
 </table>

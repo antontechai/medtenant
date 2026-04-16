@@ -69,5 +69,20 @@ namespace MedTenant.Infrastructure.Repositories
 	// return fully filled list 
 	return AllDoctors;
 	}
+	
+	public void DeactiveDoctor(int id)
+	{
+		SqlConnection connection = new SqlConnection(_connectionString);
+		connection.Open();
+		string DeactivSql =
+			"UPDATE Doctors SET IsActive = 0 WHERE Id = @id";
+		using (SqlCommand command = new SqlCommand(DeactivSql, connection)) // specification of what to do
+		{
+			command.Parameters.AddWithValue("@id", id);
+			command.ExecuteNonQuery();
+			connection.Close();
+		}
+
+	}
 	}
 }

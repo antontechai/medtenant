@@ -6,5 +6,6 @@ namespace MedTenant.Application.Interfaces
     {
     void AddDoctor(Doctor doctor);
 	List<Doctor> GetAllDoctors();
+	void DeactiveDoctor(int id);
     }
 }
