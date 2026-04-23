@@ -1,7 +1,11 @@
+using MedTenant.Application.Interfaces;
+using MedTenant.Infrastructure.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
 
 var app = builder.Build();
 

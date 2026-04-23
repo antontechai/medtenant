@@ -2,18 +2,26 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
 using MedTenant.Application.Entities;
 using MedTenant.Application.Interfaces;
-using MedTenant.Infrastructure.Repositories;
-namespace DefaultNamespace 
-{
 
-public class AddDoctor : PageModel
-{
-	[BindProperty] // Connect HTML 
-		public string FirstName { get; set; }
-	[BindProperty]
-		public string LastName { get; set; }
-	[BindProperty]
-		public int SpecialityId { get; set; }
+namespace MedTenant.Web.Pages 
+{ 
+	public class AddDoctor : PageModel
+	{
+		// store the repo 
+		private readonly IDoctorRepository _doctorRepository; // not changable when set up || _ all methods can see this variable  
+
+		// asp.net reads this constructor and give DoctorRepository(Program.cs)
+		public AddDoctor(IDoctorRepository doctorRepository)
+		{
+			_doctorRepository = doctorRepository;
+		}	
+
+		[BindProperty] // Connect HTML 
+			public string FirstName { get; set; }
+		[BindProperty]
+			public string LastName { get; set; }
+		[BindProperty]
+			public int SpecialityId { get; set; }
 
     public void OnGet()
     { 
@@ -23,8 +31,8 @@ public class AddDoctor : PageModel
 	public void OnPost()
 	{
 		Doctor newDoctor = new Doctor(1, FirstName, LastName, SpecialityId); // shape doctor from the form 
-		DoctorRepository repository = new DoctorRepository(); // working with db 
-		repository.AddDoctor(newDoctor);	
+		// uuse the field but not new DoctorRepository() as was before 
+		_doctorRepository.AddDoctor(newDoctor);
 
 		Console.WriteLine("First Name: " + FirstName);
 		Console.WriteLine("Last Name: " + LastName);
