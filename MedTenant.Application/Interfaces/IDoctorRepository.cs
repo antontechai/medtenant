@@ -11,6 +11,6 @@ namespace MedTenant.Application.Interfaces
 	// new edit methods 
 	Doctor GetDoctorById(int id);
 	void UpdateDoctor(Doctor doctor);
-	}
+	}	
 
 }
