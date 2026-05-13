@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 using MedTenant.Application.Entities;
-using MedTenant.Infrastructure.Repositories;
 
 namespace MedTenant.Web.Pages;
 
@@ -27,4 +26,4 @@ public class IndexModel : PageModel
         // refresh to see new list 
         return RedirectToPage();
     }
-}
+} }

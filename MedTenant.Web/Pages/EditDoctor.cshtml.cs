@@ -33,7 +33,7 @@ namespace MedTenant.Web.Pages
         public IActionResult OnPost()
         {
 			_editDoctorRepository.UpdateDoctor(CurrentDoctor);
-			return RedirectToPage("/Index");2
+			return RedirectToPage("/Index");
         }
     }
 }

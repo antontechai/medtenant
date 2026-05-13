@@ -6,6 +6,8 @@
 
 <h1>List of our Doctors</h1>
 
+<a asp-page="/AddDoctor" class="btn btn-primary" style="margin-bottom: 15px;">Add New Doctor</a>
+
 <table class="table">
     <thead>
     <tr>
@@ -16,6 +18,7 @@
     </tr>
     </thead>
     <tbody>
+
     @foreach (var doc in Model.DoctorList)
     {
         <tr>

@@ -28,7 +28,8 @@ namespace MedTenant.Web.Pages
 		// method open empty page 
     }
 	
-	public void OnPost()
+    // public void OnPost()
+       public IActionResult OnPost()
 	{
 		Doctor newDoctor = new Doctor(1, FirstName, LastName, SpecialityId); // shape doctor from the form 
 		// uuse the field but not new DoctorRepository() as was before 
@@ -37,6 +38,8 @@ namespace MedTenant.Web.Pages
 		Console.WriteLine("First Name: " + FirstName);
 		Console.WriteLine("Last Name: " + LastName);
 		Console.WriteLine("Speciality Id: " + SpecialityId);
+		
+		return RedirectToPage("/Index");
 	}
 }
 }
