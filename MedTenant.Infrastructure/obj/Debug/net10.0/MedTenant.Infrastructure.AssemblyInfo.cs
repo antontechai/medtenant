@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MedTenant.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c168e48eee107f105b1a9d16a9c8e1945a8fac6a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b3e9d759b66d958434f63e54fcaf72e5778fd7ee")]
 [assembly: System.Reflection.AssemblyProductAttribute("MedTenant.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MedTenant.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

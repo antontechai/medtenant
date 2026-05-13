@@ -148,3 +148,17 @@ namespace MedTenant.Infrastructure.Repositories
 		
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
