@@ -7,11 +7,11 @@ namespace MedTenant.Web.Pages
 {
     public class EditDoctorModel : PageModel
     {
-		private readonly IDoctorRepository _editDoctorRepository;
+		private readonly IDoctorService _editDoctorService;
 
-		public EditDoctorModel(IDoctorRepository editDoctorRepository)
+		public EditDoctorModel(IDoctorService editDoctorService)
 		{
-			_editDoctorRepository = editDoctorRepository;
+			_editDoctorService = editDoctorService;
 		}
         [BindProperty] // let HTML automatically fill in this object
         public Doctor CurrentDoctor { get; set; }
@@ -19,7 +19,7 @@ namespace MedTenant.Web.Pages
         // this method will work when page is open 
         public IActionResult OnGet(int id)
         {
-            CurrentDoctor = _editDoctorRepository.GetDoctorById(id); // pulling out old data from db
+            CurrentDoctor = _editDoctorService.GetDoctorById(id); // pulling out old data from db
 
             if (CurrentDoctor == null)
             {
@@ -32,7 +32,7 @@ namespace MedTenant.Web.Pages
         // this method will work after selecting Save
         public IActionResult OnPost()
         {
-			_editDoctorRepository.UpdateDoctor(CurrentDoctor);
+			_editDoctorService.UpdateDoctor(CurrentDoctor);
 			return RedirectToPage("/Index");
         }
     }

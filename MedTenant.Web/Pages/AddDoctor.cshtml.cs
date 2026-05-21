@@ -8,12 +8,12 @@ namespace MedTenant.Web.Pages
 	public class AddDoctor : PageModel
 	{
 		// store the repo 
-		private readonly IDoctorRepository _doctorRepository; // not changable when set up || _ all methods can see this variable  
+		private readonly IDoctorService _doctorService; // not changable when set up || _ all methods can see this variable  
 
 		// asp.net reads this constructor and give DoctorRepository(Program.cs)
-		public AddDoctor(IDoctorRepository doctorRepository)
+		public AddDoctor(IDoctorService doctorService)
 		{
-			_doctorRepository = doctorRepository;
+			_doctorService = doctorService;
 		}	
 
 		[BindProperty] // Connect HTML 
@@ -33,7 +33,7 @@ namespace MedTenant.Web.Pages
 	{
 		Doctor newDoctor = new Doctor(1, FirstName, LastName, SpecialityId); // shape doctor from the form 
 		// uuse the field but not new DoctorRepository() as was before 
-		_doctorRepository.AddDoctor(newDoctor);
+		_doctorService.AddDoctor(newDoctor);
 
 		Console.WriteLine("First Name: " + FirstName);
 		Console.WriteLine("Last Name: " + LastName);

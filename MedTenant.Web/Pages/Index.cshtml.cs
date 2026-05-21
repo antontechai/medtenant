@@ -2,28 +2,29 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 using MedTenant.Application.Entities;
+using MedTenant.Application.Interfaces;
 
 namespace MedTenant.Web.Pages;
 
 public class IndexModel : PageModel
 {
+    private readonly IDoctorService _doctorService;
+
+    public IndexModel(IDoctorService doctorService)
+    {
+        _doctorService = doctorService;
+    }
+
     public List<Doctor> DoctorList { get; set; } = new List<Doctor>();
 
     public void OnGet()
     {
-        DoctorRepository DoctorSql = new DoctorRepository();
-        DoctorList = DoctorSql.GetAllDoctors();
+        DoctorList = _doctorService.GetAllDoctors();
     }
 
-
-// new method 
     public IActionResult OnPostDeactivate(int id)
     {
-        // connecting to repo
-        DoctorRepository DoctorSql = new DoctorRepository();
-        // call DeactiveDoctor(id) method 
-        DoctorSql.DeactiveDoctor(id);
-        // refresh to see new list 
+        _doctorService.DeactiveDoctor(id);
         return RedirectToPage();
     }
-} }
+}
