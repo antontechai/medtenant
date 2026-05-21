@@ -1,6 +1,6 @@
-using MedTenant.Application.Interfaces;
-using MedTenant.Infrastructure.Repositories;
-using MedTenant.Application.Services;
+using MedTenant.BusinessLogic.Interfaces;
+using MedTenant.Repository.Repositories;
+using MedTenant.BusinessLogic.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -49,10 +49,6 @@
 /home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/bin/Debug/net10.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
 /home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/bin/Debug/net10.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
 /home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/bin/Debug/net10.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
-/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/bin/Debug/net10.0/MedTenant.Application.dll
-/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/bin/Debug/net10.0/MedTenant.Infrastructure.dll
-/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/bin/Debug/net10.0/MedTenant.Infrastructure.pdb
-/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/bin/Debug/net10.0/MedTenant.Application.pdb
 /home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/obj/Debug/net10.0/rjimswa.dswa.cache.json
 /home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
 /home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
@@ -134,3 +130,7 @@
 /home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/obj/Debug/net10.0/MedTenant.Web.pdb
 /home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/obj/Debug/net10.0/MedTenant.Web.genruntimeconfig.cache
 /home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/obj/Debug/net10.0/ref/MedTenant.Web.dll
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/bin/Debug/net10.0/MedTenant.BusinessLogic.dll
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/bin/Debug/net10.0/MedTenant.Repository.dll
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/bin/Debug/net10.0/MedTenant.Repository.pdb
+/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/bin/Debug/net10.0/MedTenant.BusinessLogic.pdb

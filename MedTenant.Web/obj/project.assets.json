@@ -320,28 +320,28 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "MedTenant.Application/1.0.0": {
+      "MedTenant.BusinessLogic/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
-          "bin/placeholder/MedTenant.Application.dll": {}
+          "bin/placeholder/MedTenant.BusinessLogic.dll": {}
         },
         "runtime": {
-          "bin/placeholder/MedTenant.Application.dll": {}
+          "bin/placeholder/MedTenant.BusinessLogic.dll": {}
         }
       },
-      "MedTenant.Infrastructure/1.0.0": {
+      "MedTenant.Repository/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
-          "MedTenant.Application": "1.0.0",
+          "MedTenant.BusinessLogic": "1.0.0",
           "Microsoft.Data.SqlClient": "7.0.0"
         },
         "compile": {
-          "bin/placeholder/MedTenant.Infrastructure.dll": {}
+          "bin/placeholder/MedTenant.Repository.dll": {}
         },
         "runtime": {
-          "bin/placeholder/MedTenant.Infrastructure.dll": {}
+          "bin/placeholder/MedTenant.Repository.dll": {}
         }
       }
     }
@@ -789,21 +789,21 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "MedTenant.Application/1.0.0": {
+    "MedTenant.BusinessLogic/1.0.0": {
       "type": "project",
-      "path": "../MedTenant.Application/MedTenant.Application.csproj",
-      "msbuildProject": "../MedTenant.Application/MedTenant.Application.csproj"
+      "path": "../MedTenant.BusinessLogic/MedTenant.BusinessLogic.csproj",
+      "msbuildProject": "../MedTenant.BusinessLogic/MedTenant.BusinessLogic.csproj"
     },
-    "MedTenant.Infrastructure/1.0.0": {
+    "MedTenant.Repository/1.0.0": {
       "type": "project",
-      "path": "../MedTenant.Infrastructure/MedTenant.Infrastructure.csproj",
-      "msbuildProject": "../MedTenant.Infrastructure/MedTenant.Infrastructure.csproj"
+      "path": "../MedTenant.Repository/MedTenant.Repository.csproj",
+      "msbuildProject": "../MedTenant.Repository/MedTenant.Repository.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "MedTenant.Application >= 1.0.0",
-      "MedTenant.Infrastructure >= 1.0.0"
+      "MedTenant.BusinessLogic >= 1.0.0",
+      "MedTenant.Repository >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -832,11 +832,11 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Application/MedTenant.Application.csproj": {
-              "projectPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Application/MedTenant.Application.csproj"
+            "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.BusinessLogic/MedTenant.BusinessLogic.csproj": {
+              "projectPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.BusinessLogic/MedTenant.BusinessLogic.csproj"
             },
-            "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/MedTenant.Infrastructure.csproj": {
-              "projectPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/MedTenant.Infrastructure.csproj"
+            "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Repository/MedTenant.Repository.csproj": {
+              "projectPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Repository/MedTenant.Repository.csproj"
             }
           }
         }
@@ -875,7 +875,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/10.0.104/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/10.0.107/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

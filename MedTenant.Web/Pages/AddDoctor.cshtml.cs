@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
-using MedTenant.Application.Entities;
-using MedTenant.Application.Interfaces;
+using MedTenant.BusinessLogic.Entities;
+using MedTenant.BusinessLogic.Interfaces;
 
 namespace MedTenant.Web.Pages 
 { 

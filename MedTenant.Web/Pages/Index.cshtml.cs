@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
-using MedTenant.Application.Entities;
-using MedTenant.Application.Interfaces;
+using MedTenant.BusinessLogic.Entities;
+using MedTenant.BusinessLogic.Interfaces;
 
 namespace MedTenant.Web.Pages;
 
