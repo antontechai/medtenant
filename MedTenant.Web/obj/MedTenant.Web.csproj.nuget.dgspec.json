@@ -4,14 +4,14 @@
     "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Web/MedTenant.Web.csproj": {}
   },
   "projects": {
-    "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Application/MedTenant.Application.csproj": {
+    "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.BusinessLogic/MedTenant.BusinessLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Application/MedTenant.Application.csproj",
-        "projectName": "MedTenant.Application",
-        "projectPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Application/MedTenant.Application.csproj",
+        "projectUniqueName": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.BusinessLogic/MedTenant.BusinessLogic.csproj",
+        "projectName": "MedTenant.BusinessLogic",
+        "projectPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.BusinessLogic/MedTenant.BusinessLogic.csproj",
         "packagesPath": "/home/anton/.nuget/packages/",
-        "outputPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Application/obj/",
+        "outputPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.BusinessLogic/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/anton/.nuget/NuGet/NuGet.Config"
@@ -60,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/10.0.104/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/10.0.107/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -338,14 +338,14 @@
         }
       }
     },
-    "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/MedTenant.Infrastructure.csproj": {
+    "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Repository/MedTenant.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/MedTenant.Infrastructure.csproj",
-        "projectName": "MedTenant.Infrastructure",
-        "projectPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/MedTenant.Infrastructure.csproj",
+        "projectUniqueName": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Repository/MedTenant.Repository.csproj",
+        "projectName": "MedTenant.Repository",
+        "projectPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Repository/MedTenant.Repository.csproj",
         "packagesPath": "/home/anton/.nuget/packages/",
-        "outputPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/obj/",
+        "outputPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Repository/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/anton/.nuget/NuGet/NuGet.Config"
@@ -361,8 +361,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Application/MedTenant.Application.csproj": {
-                "projectPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Application/MedTenant.Application.csproj"
+              "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.BusinessLogic/MedTenant.BusinessLogic.csproj": {
+                "projectPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.BusinessLogic/MedTenant.BusinessLogic.csproj"
               }
             }
           }
@@ -404,7 +404,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/10.0.104/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/10.0.107/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -705,11 +705,11 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Application/MedTenant.Application.csproj": {
-                "projectPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Application/MedTenant.Application.csproj"
+              "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.BusinessLogic/MedTenant.BusinessLogic.csproj": {
+                "projectPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.BusinessLogic/MedTenant.BusinessLogic.csproj"
               },
-              "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/MedTenant.Infrastructure.csproj": {
-                "projectPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Infrastructure/MedTenant.Infrastructure.csproj"
+              "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Repository/MedTenant.Repository.csproj": {
+                "projectPath": "/home/anton/University/semester2/IndividualProject/MedTenantCode/MedTenant.Repository/MedTenant.Repository.csproj"
               }
             }
           }
@@ -748,7 +748,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/10.0.104/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/10.0.107/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

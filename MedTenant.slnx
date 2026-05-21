@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="MedTenant.BusinessLogic\MedTenant.BusinessLogic.csproj" />
+  <Project Path="MedTenant.Repository\MedTenant.Repository.csproj" />
+  <Project Path="MedTenant.Web/MedTenant.Web.csproj" />
+</Solution>
