@@ -3,12 +3,9 @@ using MedTenant.BusinessLogic.Entities;
 
 namespace MedTenant.BusinessLogic.Interfaces
 {
-    public interface IDoctorService
+    public interface IAppointmentService
     {
-        void AddDoctor(Doctor doctor);
-        List<Doctor> GetAllDoctors();
-        void DeactiveDoctor(int id);
-        Doctor GetDoctorById(int id);
-        void UpdateDoctor(Doctor doctor);
+        List<Appointment> GetAvailableSlots(int doctorId, DateTime date);
+        void BookAppointment(Appointment appointment);
     }
 }
