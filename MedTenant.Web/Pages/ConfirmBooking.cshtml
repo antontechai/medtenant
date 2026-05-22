@@ -1,0 +1,14 @@
+@page "{doctorId:int}/{timeSlot}"
+@model MedTenant.Web.Pages.ConfirmBookingModel
+@{
+    ViewData["Title"] = "Confirm Booking";
+}
+
+<h1>Confirm Your Booking</h1>
+
+<form method="post">
+    <input type="hidden" name="doctorId" value="@Request.RouteValues["doctorId"]" />
+    <input type="hidden" name="timeSlot" value="@Request.RouteValues["timeSlot"]" />
+    <button type="submit" class="btn btn-success">Confirm Booking</button>
+    <a asp-page="/Index" class="btn btn-secondary">Cancel</a>
+</form>

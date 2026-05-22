@@ -1,0 +1,38 @@
+@page "{doctorId:int}/{date}" 
+@model MedTenant.Web.Pages.BookAppointmentModel
+@{
+    ViewData["Title"] = "Available Slots";
+}
+
+<h1>Available Time Slots</h1>
+
+@if (Model.AvailableSlots == null || !Model.AvailableSlots.Any()) 
+{
+    <p>No available slots for this date.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Time</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var slot in Model.AvailableSlots)
+        {
+            <tr>
+                <td>@slot.TimeSlot</td>
+                <td>
+                    <a asp-page="/ConfirmBooking" 
+                       asp-route-doctorId="@slot.DoctorId"
+                       asp-route-timeSlot="@slot.TimeSlot">
+                        Book
+                    </a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
