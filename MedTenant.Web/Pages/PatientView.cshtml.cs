@@ -1,16 +1,15 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Collections.Generic;
 using MedTenant.BusinessLogic.Entities;
 using MedTenant.BusinessLogic.Interfaces;
+using System.Collections.Generic;
 
 namespace MedTenant.Web.Pages;
 
-public class IndexModel : PageModel
+public class PatientViewModel : PageModel
 {
     private readonly IDoctorService _doctorService;
 
-    public IndexModel(IDoctorService doctorService)
+    public PatientViewModel(IDoctorService doctorService)
     {
         _doctorService = doctorService;
     }
@@ -20,11 +19,5 @@ public class IndexModel : PageModel
     public void OnGet()
     {
         DoctorList = _doctorService.GetAllDoctors();
-    }
-
-    public IActionResult OnPostDeactivate(int id)
-    {
-        _doctorService.DeactiveDoctor(id);
-        return RedirectToPage();
     }
 }

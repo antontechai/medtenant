@@ -1,0 +1,29 @@
+@page
+@model MedTenant.Web.Pages.PatientViewModel
+@{
+    ViewData["Title"] = "Doctor List";
+}
+
+<h1>List of our Doctors</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Speciality (ID)</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+
+    @foreach (var doc in Model.DoctorList) 
+    {
+        <tr>
+            <td>@doc.FirstName</td>
+            <td>@doc.LastName</td>
+            <td>@doc.SpecialityId</td>
+        </tr> 
+    }
+    </table>
