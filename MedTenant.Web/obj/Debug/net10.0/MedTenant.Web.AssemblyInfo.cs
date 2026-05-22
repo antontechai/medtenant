@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MedTenant.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b079581421399c2c40269ef75e3dc72ba02e32e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c3badcd884ab4411e63ca5ff1fa47435ea1489e3")]
 [assembly: System.Reflection.AssemblyProductAttribute("MedTenant.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MedTenant.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
