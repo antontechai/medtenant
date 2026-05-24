@@ -40,7 +40,7 @@ namespace MedTenant.Repository.Repositories
 			{
 				connection.Open();
 				// preparing SQL request 
-				string sqlDoctors = "SELECT id, TenantId, FirstName, LastName, SpecialityId, IsActive FROM Doctors";
+				string sqlDoctors = "SELECT id, TenantId, FirstName, LastName, SpecialityId, IsActive FROM Doctors WHERE isActive = 1";
 
 				// creating command 
 				using (SqlCommand command = new SqlCommand(sqlDoctors, connection)) // specification of what to do
