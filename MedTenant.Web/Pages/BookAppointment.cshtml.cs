@@ -15,7 +15,7 @@ namespace MedTenant.Web.Pages
             _appointmentService = appointmentService;
         }
 
-        public List<Appointment> AvailableSlots { get; set; }
+        public List<DateTime> AvailableSlots { get; set; }
 
         public void OnGet(int doctorId, DateTime date)
         {

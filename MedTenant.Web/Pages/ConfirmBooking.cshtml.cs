@@ -21,17 +21,26 @@ namespace MedTenant.Web.Pages
 
         public IActionResult OnPost(int doctorId, DateTime timeSlot)
         {
-            Appointment appointment = new Appointment
+            try
             {
-                TenantId = 1, 
-                DoctorId = doctorId,
-                PatientId = 1, 
-                TimeSlot = timeSlot,
-                Status = "Booked"
-            };
+                Appointment appointment = new Appointment
+                {
+                    TenantId = 1,
+                    DoctorId = doctorId,
+                    PatientId = 1,
+                    TimeSlot = timeSlot,
+                    Status = "Booked"
+                };
 
-            _appointmentService.BookAppointment(appointment);
-            return RedirectToPage("/Index");
+                _appointmentService.BookAppointment(appointment);
+                return RedirectToPage("/Index");
+            }
+            catch (Exception ex)
+            {
+                // show error message 
+                ModelState.AddModelError("", ex.Message);
+                return Page();
+            }
         }
     }
 }

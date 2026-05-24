@@ -23,11 +23,11 @@ else
         @foreach (var slot in Model.AvailableSlots)
         {
             <tr>
-                <td>@slot.TimeSlot</td>
+                <td>@slot.ToString("HH:mm")</td>
                 <td>
                     <a asp-page="/ConfirmBooking" 
-                       asp-route-doctorId="@slot.DoctorId"
-                       asp-route-timeSlot="@slot.TimeSlot">
+                       asp-route-doctorId="@Request.RouteValues["doctorId"]"
+                       asp-route-timeSlot="@slot.ToString("yyyy-MM-ddTHH:mm:ss")">
                         Book
                     </a>
                 </td>
