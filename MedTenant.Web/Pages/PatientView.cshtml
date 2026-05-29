@@ -24,6 +24,13 @@
             <td>@doc.FirstName</td>
             <td>@doc.LastName</td>
             <td>@doc.SpecialityId</td>
+            <td>
+                <a asp-page="/BookAppointment" 
+                   asp-route-doctorId="@doc.Id" 
+                   asp-route-date="2026-05-29">
+                    Book
+                </a>
+            </td>
         </tr> 
     }
     </table>
