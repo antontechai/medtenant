@@ -10,9 +10,8 @@
     <thead>
     <tr>
         <th>Name</th>
-        <th>Surname</th>
-        <th>Speciality (ID)</th>
-        <th>Status</th>
+        <th>Specialty</th>
+        <th>Book</th>
     </tr>
     </thead>
     
@@ -21,9 +20,8 @@
     @foreach (var doc in Model.DoctorList) 
     {
         <tr>
-            <td>@doc.FirstName</td>
-            <td>@doc.LastName</td>
-            <td>@doc.SpecialityId</td>
+            <td>@doc.Name</td>
+            <td>@doc.Specialty</td>
             <td>
                 <a asp-page="/BookAppointment" 
                    asp-route-doctorId="@doc.Id" 
@@ -33,4 +31,5 @@
             </td>
         </tr> 
     }
+    </tbody>
     </table>

@@ -15,13 +15,13 @@ namespace MedTenant.Repository.Repositories
 			SqlConnection connection = new SqlConnection(_connectionString);
 			connection.Open();
 			string sql =
-				"INSERT INTO Doctors (TenantId, FirstName, LastName, SpecialityId, IsActive) VALUES (@tenantId, @firstName, @lastName, @specialityId, @isActive);";
+				"INSERT INTO Doctors (TenantId, UserId, Name, Specialty, IsActive) VALUES (@tenantId, @userId, @name, @specialty, @isActive);";
 			SqlCommand command = new SqlCommand(sql, connection);
 			// filling @ with real data from C#
-			command.Parameters.AddWithValue("@tenantId", 1); // mock data for tenants 
-			command.Parameters.AddWithValue("@firstName", doctor.FirstName);
-			command.Parameters.AddWithValue("@lastName", doctor.LastName);
-			command.Parameters.AddWithValue("@specialityId", doctor.SpecialityId);
+			command.Parameters.AddWithValue("@tenantId", doctor.TenantId); // mock data for tenants 
+			command.Parameters.AddWithValue("@name", doctor.Name);
+			command.Parameters.AddWithValue("@userId", doctor.UserId);
+			command.Parameters.AddWithValue("@specialty", doctor.Specialty);
 			command.Parameters.AddWithValue("@isActive", doctor.IsActive);
 
 			// execute and close 
@@ -29,7 +29,7 @@ namespace MedTenant.Repository.Repositories
 			connection.Close();
 		}
 
-		public List<Doctor> GetAllDoctors()
+		public List<Doctor> GetAllDoctors(int tenantId)
 		{
 			List<Doctor> AllDoctors = new List<Doctor>(); // empty box for answers
 			using (SqlConnection
@@ -40,11 +40,13 @@ namespace MedTenant.Repository.Repositories
 			{
 				connection.Open();
 				// preparing SQL request 
-				string sqlDoctors = "SELECT id, TenantId, FirstName, LastName, SpecialityId, IsActive FROM Doctors WHERE isActive = 1";
+				string sqlDoctors = "SELECT id, TenantId, UserId, Name, Specialty, IsActive FROM Doctors WHERE isActive = 1 AND TenantId = @tenantId";
 
 				// creating command 
 				using (SqlCommand command = new SqlCommand(sqlDoctors, connection)) // specification of what to do
 				{
+					// share ID so db know who exactly to change
+					command.Parameters.AddWithValue("@tenantId", tenantId);
 					// executing command and get Reader
 					using (SqlDataReader
 					       reader = command
@@ -55,15 +57,14 @@ namespace MedTenant.Repository.Repositories
 						{
 							// taking data and putting them into variables
 							int id = reader.GetInt32(0); // 0 is first column (Id)
-							int tenantId = reader.GetInt32(1); // 1 - second column (TenantId)
-							string firstName = reader.GetString(2);
-							string lastName = reader.GetString(3);
-							int specialityId = reader.GetInt32(4);
+							int docTenantId = reader.GetInt32(1); // 1 - second column (TenantId)
+							int userId = reader.GetInt32(2);
+							string name = reader.GetString(3);
+							string specialty = reader.GetString(4);
 							bool isActive = reader.GetBoolean(5);
 
 							// using new constructor, to shape the doctor 
-							Doctor doc = new Doctor(id, tenantId, firstName, lastName, specialityId, isActive);
-
+							Doctor doc = new Doctor(id, tenantId, userId, name, specialty, isActive);
 							// adding new created doctor into the list 
 							AllDoctors.Add(doc);
 						}
@@ -75,45 +76,47 @@ namespace MedTenant.Repository.Repositories
 			return AllDoctors;
 		}
 
-		public void DeactiveDoctor(int id)
+		public void DeactiveDoctor(int id, int tenantId)
 		{
 			SqlConnection connection = new SqlConnection(_connectionString);
 			connection.Open();
 			string DeactivSql =
-				"UPDATE Doctors SET IsActive = 0 WHERE Id = @id";
+				"UPDATE Doctors SET IsActive = 0 WHERE Id = @id AND TenantId = @tenantId";
 			using (SqlCommand command = new SqlCommand(DeactivSql, connection)) // specification of what to do
 			{
 				command.Parameters.AddWithValue("@id", id);
+				command.Parameters.AddWithValue("@tenantid", tenantId);
 				command.ExecuteNonQuery();
 				connection.Close();
 			}
 
 		}
 
-		public Doctor GetDoctorById(int id)
+		public Doctor GetDoctorById(int id, int tenantId)
 		{
 			using (SqlConnection connection = new SqlConnection(_connectionString))
 			{
 				connection.Open();
 				string sql =
-					"SELECT Id, TenantId, FirstName, LastName, SpecialityId, IsActive FROM Doctors Where Id =@id";
+					"SELECT Id, TenantId, UserId, Name, Specialty, IsActive FROM Doctors WHERE Id =@id AND TenantId = @tenantid";
 
 				using (SqlCommand command = new SqlCommand(sql, connection))
 				{
 					command.Parameters.AddWithValue("@id", id);
+					command.Parameters.AddWithValue("@tenantid", tenantId);
 
 					using (SqlDataReader reader = command.ExecuteReader())
 					{
 						if (reader.Read()) // if found doctor
 						{
 							int docId = reader.GetInt32(0);
-							int tenantId = reader.GetInt32(1);
-							string firstName = reader.GetString(2);
-							string lastName = reader.GetString(3);
-							int specialityId = reader.GetInt32(4);
+							int docTenantId = reader.GetInt32(1);
+							int userId = reader.GetInt32(2);
+							string name = reader.GetString(3);
+							string specialty = reader.GetString(4);
 							bool isActive = reader.GetBoolean(5);
 
-							return new Doctor(docId, tenantId, firstName, lastName, specialityId, isActive);
+							return new Doctor(docId, tenantId, userId, name, specialty, isActive);
 						}
 						
 					}
@@ -129,16 +132,16 @@ namespace MedTenant.Repository.Repositories
 				{
 					connection.Open();
 					string sql =
-						"UPDATE Doctors SET FirstName = @firstName, LastName = @lastName, SpecialityId = @specialityId, IsActive = @isActive WHERE Id = @id";
+						"UPDATE Doctors SET Name = @name, Specialty = @specialty, IsActive = @isActive WHERE Id = @id AND TenantId = @tenantID";
 					using (SqlCommand command = new SqlCommand(sql, connection))
 					{
 						// filling @ with real data from C#
-						command.Parameters.AddWithValue("@firstName", doctor.FirstName);
-						command.Parameters.AddWithValue("@lastName", doctor.LastName);
-						command.Parameters.AddWithValue("@specialityId", doctor.SpecialityId);
-						command.Parameters.AddWithValue("@isActive", doctor.IsActive);
 						// share ID so db know who exactly to change
 						command.Parameters.AddWithValue("@id", doctor.Id);
+						command.Parameters.AddWithValue("@tenantId", doctor.TenantId);
+						command.Parameters.AddWithValue("@name", doctor.Name);
+						command.Parameters.AddWithValue("@specialty", doctor.Specialty);
+						command.Parameters.AddWithValue("@isActive", doctor.IsActive);
 						// execute and close 
 						command.ExecuteNonQuery();
 						// using will close eveything 

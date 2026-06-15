@@ -10,7 +10,7 @@ namespace MedTenant.Tests
         [Fact]
         public void BookAppointment_WhenSlotTaken_ThrowException()
         {
-            // arrange, create fake repo with one booked slot
+            // create fake repo with one booked slot
             var fakeRepo = new FakeAppointmentRepository();
             var service = new AppointmentService(fakeRepo);
 
@@ -43,7 +43,7 @@ namespace MedTenant.Tests
 
         public void AddExisting(Appointment a) => _appointments.Add(a);
 
-        public List<Appointment> GetAppointmentsByDoctorAndDate(int doctorId, DateTime date)
+        public List<Appointment> GetAppointmentsByDoctorAndDate(int doctorId, DateTime date, int tenantId)
         {
             return _appointments
                 .Where(a => a.DoctorId == doctorId && a.TimeSlot.Date == date.Date)

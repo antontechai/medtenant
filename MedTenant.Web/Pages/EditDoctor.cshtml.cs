@@ -19,7 +19,8 @@ namespace MedTenant.Web.Pages
         // this method will work when page is open 
         public IActionResult OnGet(int id)
         {
-            CurrentDoctor = _editDoctorService.GetDoctorById(id); // pulling out old data from db
+	        int tenantId = 1;
+            CurrentDoctor = _editDoctorService.GetDoctorById(id, tenantId); // pulling out old data from db
 
             if (CurrentDoctor == null)
             {

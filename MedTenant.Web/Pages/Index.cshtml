@@ -8,23 +8,23 @@
 
 <a asp-page="/AddDoctor" class="btn btn-primary" style="margin-bottom: 15px;">Add New Doctor</a>
 
-<table class="table"/>
+<table class="table">
     <thead>
     <tr>
         <th>Name</th>
-        <th>Surname</th>
-        <th>Speciality (ID)</th>
+        <th>Specialty</th>
         <th>Status</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
+</table>
 
     @foreach (var doc in Model.DoctorList)
     {
         <tr>
-            <td>@doc.FirstName</td>
-            <td>@doc.LastName</td>
-            <td>@doc.SpecialityId</td>
+            <td>@doc.Name</td>
+            <td>@doc.Specialty</td>
             <td>@(doc.IsActive ? "Active" : "Not Active")</td>
             
             <td>

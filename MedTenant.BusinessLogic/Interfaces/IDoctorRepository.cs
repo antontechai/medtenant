@@ -5,11 +5,11 @@ namespace MedTenant.BusinessLogic.Interfaces
     public interface IDoctorRepository
     {
     void AddDoctor(Doctor doctor);
-	List<Doctor> GetAllDoctors();
-	void DeactiveDoctor(int id);
+	List<Doctor> GetAllDoctors(int tenantId);
+	void DeactiveDoctor(int id, int tenantId);
     
 	// new edit methods 
-	Doctor GetDoctorById(int id);
+	Doctor GetDoctorById(int id, int tenantId);
 	void UpdateDoctor(Doctor doctor);
 	}	
 
