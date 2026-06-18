@@ -42,9 +42,9 @@ public class Register : PageModel
         };
         
         // call userservice for register 
-        _userService.Register(user, plainPassword);
+        _userService.Register(newUser, Password);
 
-        return Page(/Login);
+        return RedirectToPage("/Login");
     }
     
 }
