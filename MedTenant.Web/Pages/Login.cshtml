@@ -1,19 +1,34 @@
 @page
 @model MedTenant.Web.Pages.Login
 
-@{
-    Layout = null;
+<h2>Login</h2>
+
+@* Show error message if login failed *@
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <p style="color:red">@Model.ErrorMessage</p>
 }
 
-<!DOCTYPE html>
+<form method="post">
+    <div>
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" type="email" required />
+    </div>
+    <div>
+        <label asp-for="Password">Password</label>
+        <input asp-for="Password" type="password" required />
+    </div>
+    <div>
+        <label asp-for="ChosenTenantId">Clinic</label>
+        <select asp-for="ChosenTenantId" required>
+            <option value="">-- Select clinic --</option>
+            @foreach (var tenant in Model.Tenants)
+            {
+                <option value="@tenant.Id">@tenant.ClinicName</option>
+            }
+        </select>
+    </div>
+    <button type="submit">Login</button>
+</form>
 
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    
-</div>
-</body>
-</html>
+<p>Don't have an account? <a href="/Register">Register here</a></p>
