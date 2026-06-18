@@ -14,17 +14,19 @@ public class IndexModel : PageModel
     {
         _doctorService = doctorService;
     }
-
+    
     public List<Doctor> DoctorList { get; set; } = new List<Doctor>();
 
     public void OnGet()
     {
-        DoctorList = _doctorService.GetAllDoctors();
+        int tenantId = 1;
+        DoctorList = _doctorService.GetAllDoctors(tenantId);
     }
 
     public IActionResult OnPostDeactivate(int id)
     {
-        _doctorService.DeactiveDoctor(id);
+        int tenantId = 1;
+        _doctorService.DeactiveDoctor(id, tenantId);
         return RedirectToPage();
     }
 }

@@ -19,7 +19,8 @@ namespace MedTenant.Web.Pages
 
         public void OnGet(int doctorId, DateTime date)
         {
-            AvailableSlots = _appointmentService.GetAvailableSlots(doctorId, date);
+            int tenantId = 1;
+            AvailableSlots = _appointmentService.GetAvailableSlots(doctorId, date, tenantId);
         }
     }
 }

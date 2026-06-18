@@ -7,12 +7,12 @@ namespace MedTenant.BusinessLogic.Entities
 		public int TenantId { get; set; }
 
 		// personal data 
-		public string FirstName { get; set; }
-		public string LastName { get; set; }
+		public string Name { get; set; }
 
 		// speciality and status 
-		public int SpecialityId { get; set; }
+		public string Specialty { get; set; }
 		public bool IsActive { get; set; }
+		public int UserId { get; set; }
 
 		public Doctor() // empty constructor for ASP.NET
 		{
@@ -20,26 +20,26 @@ namespace MedTenant.BusinessLogic.Entities
 		}
 
 		// construction for new doctors 
-		public Doctor(int tenantId, string firstName, string lastName, int specialityId)
+		public Doctor(int tenantId, int userId, string name, string specialty)
 		{
 			// not id = automatically in db
 			TenantId = tenantId;
-			FirstName = firstName;
-			LastName = lastName;
-			SpecialityId = specialityId;
+			Name = name;
+			UserId = userId;
+			Specialty = specialty;
 
 			// once doctor is added, automatically let him/her be active 
 			IsActive = true;
 		}
 
-		public Doctor(int id, int tenantId, string firstName, string lastName, int specialityId, bool isActive)
+		public Doctor(int id, int tenantId, int userId, string name, string specialty, bool isActive)
 		{
 			Id = id;
 			TenantId = tenantId;
-			FirstName = firstName;
-			LastName = lastName;
-			SpecialityId = specialityId;
+			Specialty = specialty;
 			IsActive = isActive;
+			Name = name;
+			UserId = userId;
 		}
 	}
 }

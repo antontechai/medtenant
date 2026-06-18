@@ -16,7 +16,7 @@ namespace MedTenant.BusinessLogic.Services
         public void AddDoctor(Doctor doctor)
         {
             // the name cannot be empty 
-            if (string.IsNullOrEmpty(doctor.FirstName))
+            if (string.IsNullOrEmpty(doctor.Name))
             {
                 throw new Exception("First name cannot be empty");
             }
@@ -25,19 +25,19 @@ namespace MedTenant.BusinessLogic.Services
             _doctorRepository.AddDoctor(doctor);
         }
 
-        public List<Doctor> GetAllDoctors()
+        public List<Doctor> GetAllDoctors(int tenantId)
         {
-            return _doctorRepository.GetAllDoctors();
+            return _doctorRepository.GetAllDoctors(tenantId);
         }
 
-        public void DeactiveDoctor(int id)
+        public void DeactiveDoctor(int id, int tenantId)
         {
-            _doctorRepository.DeactiveDoctor(id);
+            _doctorRepository.DeactiveDoctor(id, tenantId);
         }
 
-        public Doctor GetDoctorById(int id)
+        public Doctor GetDoctorById(int id, int tenantId)
         {
-            return _doctorRepository.GetDoctorById(id);
+            return _doctorRepository.GetDoctorById(id, tenantId);
         }
 
         public void UpdateDoctor(Doctor doctor)

@@ -10,18 +10,13 @@
     <input type="hidden" name="CurrentDoctor.Id" value="@Model.CurrentDoctor.Id" />
 
     <div class="mb-3">
-        <label>First Name</label>
-        <input type="text" name="CurrentDoctor.FirstName" class="form-control" value="@Model.CurrentDoctor.FirstName" required />
+        <label>Full Name</label>
+        <input type="text" name="CurrentDoctor.Name" class="form-control" value="@Model.CurrentDoctor.Name" required />
     </div>
 
     <div class="mb-3">
-        <label>Last Name</label>
-        <input type="text" name="CurrentDoctor.LastName" class="form-control" value="@Model.CurrentDoctor.LastName" required />
-    </div>
-
-    <div class="mb-3">
-        <label>Speciality ID</label>
-        <input type="number" name="CurrentDoctor.SpecialityId" class="form-control" value="@Model.CurrentDoctor.SpecialityId" required />
+        <label>Specialty</label>
+        <input type="text" name="CurrentDoctor.Specialty" class="form-control" value="@Model.CurrentDoctor.Specialty" required />
     </div>
 
     <div class="mb-3 form-check">

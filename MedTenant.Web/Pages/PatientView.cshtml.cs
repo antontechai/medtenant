@@ -18,6 +18,7 @@ public class PatientViewModel : PageModel
 
     public void OnGet()
     {
-        DoctorList = _doctorService.GetAllDoctors();
+        int tenantId = 1;
+        DoctorList = _doctorService.GetAllDoctors(tenantId: 1);
     }
 }

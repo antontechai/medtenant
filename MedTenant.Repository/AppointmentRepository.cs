@@ -18,23 +18,24 @@ namespace MedTenant.Repository.Repositories
 
             // SQL insert command
             string sql =
-                "INSERT INTO Appointments (TenantId, DoctorId, PatientId, TimeSlot, Status) VALUES (@tenantId, @doctorId, @patientId, @timeSlot, @status);";
+                "INSERT INTO Appointments (TenantId, DoctorId, PatientUserId, TimeSlot, Status) VALUES (@tenantId, @doctorId, @patientUserId, @timeSlot, @status);";
 
             SqlCommand command = new SqlCommand(sql, connection);
 
             // fill @ placeholders with real data
             command.Parameters.AddWithValue("@tenantId", appointment.TenantId);
             command.Parameters.AddWithValue("@doctorId", appointment.DoctorId);
-            command.Parameters.AddWithValue("@patientId", appointment.PatientId);
+            command.Parameters.AddWithValue("@patientUserId", appointment.PatientUserId);
             command.Parameters.AddWithValue("@timeSlot", appointment.TimeSlot);
             command.Parameters.AddWithValue("@status", appointment.Status);
 
+            
             // execute and close
             command.ExecuteNonQuery();
             connection.Close();
         }
         
-        public List<Appointment> GetAppointmentsByDoctorAndDate(int doctorId, DateTime date)
+        public List<Appointment> GetAppointmentsByDoctorAndDate(int doctorId, DateTime date, int tenantId)
         {
             List<Appointment> appointments = new List<Appointment>();
     
@@ -43,12 +44,13 @@ namespace MedTenant.Repository.Repositories
                 connection.Open();
         
                 // select appointments for specific doctor on specific date
-                string sql = "SELECT Id, TenantId, DoctorId, PatientId, TimeSlot, Status FROM Appointments WHERE DoctorId = @doctorId AND CAST(TimeSlot AS DATE) = CAST(@date AS DATE)";
+                string sql = "SELECT Id, TenantId, DoctorId, PatientUserId, TimeSlot, Status FROM Appointments WHERE DoctorId = @doctorId AND CAST(TimeSlot AS DATE) = CAST(@date AS DATE) AND TenantId = @tenantId";
         
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     command.Parameters.AddWithValue("@doctorId", doctorId);
                     command.Parameters.AddWithValue("@date", date);
+                    command.Parameters.AddWithValue("@tenantId", tenantId);
             
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -60,7 +62,7 @@ namespace MedTenant.Repository.Repositories
                                 Id = reader.GetInt32(0),
                                 TenantId = reader.GetInt32(1),
                                 DoctorId = reader.GetInt32(2),
-                                PatientId = reader.GetInt32(3),
+                                PatientUserId = reader.GetInt32(3),
                                 TimeSlot = reader.GetDateTime(4),
                                 Status = reader.GetString(5)
                             };

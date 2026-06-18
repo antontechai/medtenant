@@ -30,14 +30,14 @@ namespace MedTenant.Web.Pages
 	
     // public void OnPost()
        public IActionResult OnPost()
-	{
-		Doctor newDoctor = new Doctor(1, FirstName, LastName, SpecialityId); // shape doctor from the form 
+       { 
+	       int tenantId = 1;
+	       int userId = 1;
+	       string name = "as";
+	       string specialty = "sda";
+		Doctor newDoctor = new Doctor(tenantId, userId, name, specialty); // shape doctor from the form 
 		// uuse the field but not new DoctorRepository() as was before 
 		_doctorService.AddDoctor(newDoctor);
-
-		Console.WriteLine("First Name: " + FirstName);
-		Console.WriteLine("Last Name: " + LastName);
-		Console.WriteLine("Speciality Id: " + SpecialityId);
 		
 		return RedirectToPage("/Index");
 	}

@@ -13,7 +13,7 @@ namespace MedTenant.BusinessLogic.Services
             _appointmentRepository = appointmentRepository;
         }
 
-        public List<DateTime> GetAvailableSlots(int doctorId, DateTime date)
+        public List<DateTime> GetAvailableSlots(int doctorId, DateTime date, int tenantId)
         {
             // can't be booked in the past
             if (date < DateTime.Today)
@@ -33,7 +33,7 @@ namespace MedTenant.BusinessLogic.Services
             }
             
             // get already booked slots from repository 
-            var booked = _appointmentRepository.GetAppointmentsByDoctorAndDate(doctorId, date);
+            var booked = _appointmentRepository.GetAppointmentsByDoctorAndDate(doctorId, date, tenantId);
             var bookedTimes = booked.Select(a => a.TimeSlot).ToList();
             
             //return only free slots 
@@ -46,7 +46,8 @@ namespace MedTenant.BusinessLogic.Services
             var existing = _appointmentRepository.GetAppointmentsByDoctorAndDate
             (
                 appointment.DoctorId,
-                appointment.TimeSlot.Date
+                appointment.TimeSlot.Date,
+                appointment.TenantId
             );
 
             bool slotTaken = existing.Any(a => a.TimeSlot == appointment.TimeSlot);

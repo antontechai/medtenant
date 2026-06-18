@@ -27,7 +27,7 @@ namespace MedTenant.Web.Pages
                 {
                     TenantId = 1,
                     DoctorId = doctorId,
-                    PatientId = 1,
+                    PatientUserId = 1,
                     TimeSlot = timeSlot,
                     Status = "Booked"
                 };

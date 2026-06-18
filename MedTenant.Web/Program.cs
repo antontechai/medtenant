@@ -1,6 +1,8 @@
 using MedTenant.BusinessLogic.Interfaces;
 using MedTenant.Repository.Repositories;
 using MedTenant.BusinessLogic.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,21 @@ builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
 builder.Services.AddScoped<IDoctorService, DoctorService>();
 builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ITenantRepository, TenantRepository>();
+builder.Services.AddScoped<ITenantService, TenantService>();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme) // created system and return it
+    .AddCookie(options => // added cookie mode to the system above  & => lambda - recipe 
+    {
+        options.LoginPath = "/Login";
+        options.AccessDeniedPath = "/AccessDenied";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+        options.SlidingExpiration = true;
+        options.Cookie.Name = "MedTenantAuth";
+        options.Cookie.HttpOnly = true; // XSS JS protection 
+    });
 
 var app = builder.Build();
 
@@ -25,7 +42,9 @@ app.UseHttpsRedirection();
 
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseAuthentication(); // first who
+
+app.UseAuthorization(); // than what allowed 
 
 app.MapStaticAssets();
 app.MapRazorPages()

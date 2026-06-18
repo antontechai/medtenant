@@ -6,9 +6,9 @@ namespace MedTenant.BusinessLogic.Interfaces
     public interface IDoctorService
     {
         void AddDoctor(Doctor doctor);
-        List<Doctor> GetAllDoctors();
-        void DeactiveDoctor(int id);
-        Doctor GetDoctorById(int id);
+        List<Doctor> GetAllDoctors(int tenantId);
+        void DeactiveDoctor(int id, int tenantId);
+        Doctor GetDoctorById(int id, int tenantId);
         void UpdateDoctor(Doctor doctor);
     }
 }
