@@ -16,10 +16,10 @@ namespace MedTenant.BusinessLogic.Services
         public User Register(User user, string plainPassword)
         {
             user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(plainPassword); // hashing plain password BCrypt
-            _userRepository.AddUser(user); // adding to db
-            // get UserByEmail to know UserId 
+            _userRepository.AddUser(user); // + to db
+            // get UserByEmail = know UserId 
             User DbUser = _userRepository.GetUserByEmail(user.Email, user.TenantId);
-            return DbUser; // return user
+            return DbUser; 
         }
         
         public User Login(string email, string password, int tenantId)

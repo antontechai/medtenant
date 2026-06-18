@@ -1,19 +1,32 @@
 @page
 @model MedTenant.Web.Pages.Register
 
-@{
-    Layout = null;
-}
+<h2>Register</h2>
 
-<!DOCTYPE html>
+<form method="post">
+    <div>
+        <label>Email:</label>
+        <input asp-for="Email" type="email" required />
+    </div>
+    <div>
+        <label>Password:</label>
+        <input asp-for="Password" type="password" required />
+    </div>
+    <div>
+        <label>Name:</label>
+        <input asp-for="Name" required />
+    </div>
+    <div>
+        <label>Clinic:</label>
+        <select asp-for="ChosenTenantId" required>
+            <option value="">-- Choose clinic --</option>
+            @foreach (var tenant in Model.Tenants)
+            {
+                <option value="@tenant.Id">@tenant.ClinicName</option>
+            }
+        </select>
+    </div>
+    <button type="submit">Register</button>
+</form>
 
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    
-</div>
-</body>
-</html>
+<p>Already have an account? <a href="/Login">Login here</a></p>

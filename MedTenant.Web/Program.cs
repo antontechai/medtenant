@@ -14,6 +14,8 @@ builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ITenantRepository, TenantRepository>();
+builder.Services.AddScoped<ITenantService, TenantService>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme) // created system and return it
     .AddCookie(options => // added cookie mode to the system above  & => lambda - recipe 
