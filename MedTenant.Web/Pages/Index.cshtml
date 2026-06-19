@@ -1,38 +1,19 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Doctor List";
+    ViewData["Title"] = "MedTenant";
 }
 
-<h1>List of our Doctors</h1>
-
-<a asp-page="/AddDoctor" class="btn btn-primary" style="margin-bottom: 15px;">Add New Doctor</a>
-
-<table class="table">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Specialty</th>
-        <th>Status</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-</table>
-
-    @foreach (var doc in Model.DoctorList)
+<div class="text-center my-5">
+    <h1 class="display-4">Welcome to MedTenant</h1>
+    <p class="lead">Multi-tenant clinic scheduling system.</p>
+    @if (User.Identity != null && User.Identity.IsAuthenticated)
     {
-        <tr>
-            <td>@doc.Name</td>
-            <td>@doc.Specialty</td>
-            <td>@(doc.IsActive ? "Active" : "Not Active")</td>
-            
-            <td>
-                <a href="/EditDoctor?id=@doc.Id" class="btn btn-warning btn-sm">Edit</a>
-                
-                <form method="post" asp-page-handler="Deactivate" asp-route-id="@doc.Id" style="display:inline;">
-                    <button type="submit" class="btn btn-danger btn-sm">Deactivate</button>
-                </form>
-            </td>
-        </tr>
+        <p>Hello, @User.Identity.Name!</p>
     }
+    else
+    {
+        <a class="btn btn-primary" asp-page="/Login">Login</a>
+        <a class="btn btn-secondary" asp-page="/Register">Register</a>
+    }
+</div>

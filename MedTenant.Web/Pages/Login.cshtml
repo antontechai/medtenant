@@ -1,34 +1,45 @@
 @page
 @model MedTenant.Web.Pages.Login
 
-<h2>Login</h2>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Login</h2>
+                    
+                    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    {
+                        <div class="alert alert-danger">@Model.ErrorMessage</div>
+                    }
 
-@* Show error message if login failed *@
-@if (!string.IsNullOrEmpty(Model.ErrorMessage))
-{
-    <p style="color:red">@Model.ErrorMessage</p>
-}
+                    <form method="post">
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label">Email</label>
+                            <input asp-for="Email" type="email" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label">Password</label>
+                            <input asp-for="Password" type="password" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="ChosenTenantId" class="form-label">Clinic</label>
+                            <select asp-for="ChosenTenantId" class="form-select" required>
+                                <option value="">-- Select clinic --</option>
+                                @foreach (var tenant in Model.Tenants)
+                                {
+                                    <option value="@tenant.Id">@tenant.ClinicName</option>
+                                }
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
 
-<form method="post">
-    <div>
-        <label asp-for="Email">Email</label>
-        <input asp-for="Email" type="email" required />
+                    <p class="text-center mt-3">
+                        Don't have an account? <a asp-page="/Register">Register here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <label asp-for="Password">Password</label>
-        <input asp-for="Password" type="password" required />
-    </div>
-    <div>
-        <label asp-for="ChosenTenantId">Clinic</label>
-        <select asp-for="ChosenTenantId" required>
-            <option value="">-- Select clinic --</option>
-            @foreach (var tenant in Model.Tenants)
-            {
-                <option value="@tenant.Id">@tenant.ClinicName</option>
-            }
-        </select>
-    </div>
-    <button type="submit">Login</button>
-</form>
-
-<p>Don't have an account? <a href="/Register">Register here</a></p>
+</div>

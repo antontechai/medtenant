@@ -26,7 +26,7 @@ namespace MedTenant.BusinessLogic.Services
         {
         // GetUserByEmail
             User user = _userRepository.GetUserByEmail(email, tenantId); // looking for user by email | request repository 
-            if (user == null) return null; // if nothing return null
+            if (user == null) return null; // if nothing 
             bool isMatch = BCrypt.Net.BCrypt.Verify(password, user.PasswordHash); // check if plain password match hash with bcrypt
             if (isMatch == true) return user; // if false move to the next line which is return = null
             return null;

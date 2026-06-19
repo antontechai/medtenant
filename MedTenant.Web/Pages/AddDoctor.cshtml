@@ -1,28 +1,37 @@
 @page
 @model MedTenant.Web.Pages.AddDoctor
 
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>Add new doctor</title>
-</head>
-<body>
-<div>
-
-<form method="post">
-	<label>First Name:</label>
-	<input type="text" name="FirstName" />
-	<label>Last Name:</label>
-	<input type="text" name="LastName" />
-	<label>Speciality Id:</label>
-	<input	type="number" name="SpecialityId" />
-	<button type="submit">Submit</button>
-</form> 
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Add Doctor</h2>
+                    <form method="post">
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label">Name</label>
+                            <input asp-for="Name" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label asp-for="Specialty" class="form-label">Specialty</label>
+                                <select asp-for="Specialty" class="form-select" required>
+                                    <option value="">-- Choose specialty --</option>
+                                    <option value="Cardiology">Cardiology</option>
+                                    <option value="Dermatology">Dermatology</option>
+                                    <option value="General Practice">General Practice</option>
+                                    <option value="Neurology">Neurology</option>
+                                    <option value="Pediatrics">Pediatrics</option>
+                                    <option value="Psychiatry">Psychiatry</option>
+                                    <option value="Radiology">Radiology</option>
+                                    <option value="Surgery">Surgery</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Add Doctor</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-</body>
-</html>
