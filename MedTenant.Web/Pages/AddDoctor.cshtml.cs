@@ -2,9 +2,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
 using MedTenant.BusinessLogic.Entities;
 using MedTenant.BusinessLogic.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace MedTenant.Web.Pages 
 { 
+	[Authorize(Roles = "Manager")]
 	public class AddDoctor : PageModel
 	{
 		// store the repo 
@@ -31,7 +34,7 @@ namespace MedTenant.Web.Pages
     // public void OnPost()
        public IActionResult OnPost()
        { 
-	       int tenantId = 1;
+	       int tenantId = int.Parse(User.FindFirst("TenantId")!.Value);;
 	       int userId = 1;
 	       string name = "as";
 	       string specialty = "sda";
