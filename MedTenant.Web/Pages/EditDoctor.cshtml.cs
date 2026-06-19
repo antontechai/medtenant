@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
 using MedTenant.BusinessLogic.Entities;
 using MedTenant.BusinessLogic.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MedTenant.Web.Pages
 {
+	[Authorize(Roles = "Manager")]
     public class EditDoctorModel : PageModel
     {
 		private readonly IDoctorService _editDoctorService;

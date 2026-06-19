@@ -2,9 +2,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using MedTenant.BusinessLogic.Entities;
 using MedTenant.BusinessLogic.Interfaces;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace MedTenant.Web.Pages;
 
+[Authorize(Roles = "Patient")]
 public class PatientViewModel : PageModel
 {
     private readonly IDoctorService _doctorService;
@@ -18,7 +21,7 @@ public class PatientViewModel : PageModel
 
     public void OnGet()
     {
-        int tenantId = 1;
+        int tenantId = int.Parse(User.FindFirst("TenantId")!.Value);
         DoctorList = _doctorService.GetAllDoctors(tenantId: 1);
     }
 }
