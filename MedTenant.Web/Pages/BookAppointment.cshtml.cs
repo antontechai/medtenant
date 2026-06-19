@@ -23,6 +23,11 @@ namespace MedTenant.Web.Pages
 
             public void OnGet(int doctorId, DateTime date)
             {
+                if (date < DateTime.Today.AddDays(1))
+                {
+                    date = DateTime.Today.AddDays(1);
+                }
+                
                 int tenantId = int.Parse(User.FindFirst("TenantId")!.Value);
                 AvailableSlots = _appointmentService.GetAvailableSlots(doctorId, date, tenantId);
             }

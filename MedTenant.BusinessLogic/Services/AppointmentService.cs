@@ -54,7 +54,7 @@ namespace MedTenant.BusinessLogic.Services
 
             if (slotTaken)
             {
-                throw new Exception("This slot is no longer avaliable, please choose another one.");
+                throw new Exception("This slot is not avaliable.");
             }
             
             _appointmentRepository.BookAppointment(appointment);
