@@ -22,6 +22,6 @@ public class PatientViewModel : PageModel
     public void OnGet()
     {
         int tenantId = int.Parse(User.FindFirst("TenantId")!.Value);
-        DoctorList = _doctorService.GetAllDoctors(tenantId: 1);
+        DoctorList = _doctorService.GetAllDoctors(tenantId);
     }
 }

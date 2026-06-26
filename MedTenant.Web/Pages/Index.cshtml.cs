@@ -19,8 +19,8 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {
-        int tenantId = 1;
-        DoctorList = _doctorService.GetAllDoctors(tenantId);
+        // int tenantId = 1;
+        // DoctorList = _doctorService.GetAllDoctors(tenantId);
     }
 
     public IActionResult OnPostDeactivate(int id)
